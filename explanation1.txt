@@ -1,0 +1,214 @@
+Dictionary:
+PROPERTIES OF DICTIONARY:
+In a dictionary each element is a combination of 2 sub elements. The 1st sub element is the key and 2nd sub element is value. The keys and values can be of same or different data types. The keys and values of elements in dictionary can be of any data type. The elements of dictionary are enlcosed in {}
+
+d1={11:'abc def',45:89,14.9:'mno','pqr':55}
+In above dictionary which we have assigned to d1 variable, there are 4 elements. 1st element has key 11 and value 'abc def'. 2nd element has key 45 and value 89. The part we mention before : is key of the element and part mentioned after : is value. 
+
+In a dictionary using key we get value. Using value we dont get key. If we want to access value of an element we mention name of dictionary variable and in [] we write the key of the element.
+dictionary variable name[key]
+
+print(d1[45])..Output is 89
+print(d1['abc def'])...Output is error KeyError
+
+
+In dictionary insertion is not preserved. So we cannot perform indexing or slicing in dictionary.
+
+
+In dictionary all elements must have unique keys. If we try to insert an element in dictionary whose key is already key of some element in dictionary then we dont get error but overwriting occurs.
+d1={11:'mno',45:89,11:'abc def','pqr':55}
+Because 11:'mno' has come before 11:'abc def' from left to right, so the value of element whose key is 11 is not 'mno' but 'abc def'. So dictionary d1 now becomes {11:'abc def',45:89,'pqr':55}
+
+
+The different elements in same dictionary can have same values but keys must be different.
+e.g. 
+d1={11:'mno',45:89,17:'abc def','pqr':55,21:'abc def'}
+
+Now there will be 2 different elements in same dictionary whose keys are 17 and 21 resp. but value is same 'abc def'/ Here there will no overwriting. 
+
+
+Dictionary is mutable. So we can add new elements to dictionary and we can remove element from dictionary, also we can change value of element in dictionary using key. 
+
+
+
+
+
+
+
+ACCESSING VALUE OF ELEMENT IN DICTIONARY:
+To access value of element in dictionary we can write name of dictionary valiable and mention key inside []
+d1={11:2,True:45,98:81,'abc def':25}
+print(d1[True])...45
+
+
+Alternative way for accessing value of element is that we can call get() member function of dictionary, and pass key of element to it and we get value.
+print(d1.get(98))...Output is 81
+
+
+
+
+
+
+
+
+CHANGING VALUE OF ELEMENT IN DICTIONARY:
+To change value of element in dictionary we can write name of dictionary valiable and mention key inside [] and assign it the new value
+
+d1={11:2,True:45,98:81,'abc def':25}
+d1[98]='mno pqr'
+The above statement will change value of element with key 98 and make it 'mno pqr' instead of 81.
+So now dictionary d1 becomes {11:2,True:45,98:'mno pqr','abc def':25}
+
+
+
+
+
+
+
+
+ADDING NEW ELEMENT IN DICTIONARY:
+To add new element in dictionary we use same syntax as we use for changing value of element.
+
+d1={11:2,True:45,98:81,'abc def':25}
+d1[47]='xyz'
+
+The above statement will first check if there is an element in dictionary d1 whose key is 47. 
+But because it doesnt find an element in dictionary d1 whose key is 47, 
+so it will add a new element in dictionary d1 whose key is 47 and value is 'xyz'. 
+So dictionary d1 now becomes d1={11:2,True:45,98:81,'abc def':25,47:'xyz'} in any order
+
+
+To add multiple key-value pairs at same same in dictionary d1,we can use update() function.
+d1={11:2,True:45,98:81,'abc def':25}
+
+d1.update({4:9,2:29,'abc1':15,'abc def':49})
+Here the above statement adds multiple key-value pairs to d1 but because there is already an element with
+ key 'abc def' so overwriting happens and value of element whose key is 'abc def' will now be 49
+
+So d1 now becomes {11:2,True:45,98:81,'abc def':49,4:9,2:29,'abc1':15}
+
+
+
+
+
+
+
+REMOVING ELEMENT FROM DICTIONARY:
+d1={11:2,True:45,98:81,'abc def':25}
+
+del d1[98]
+
+Here the above statement will remove the element from the dictionary d1 whose key is 98. 
+So entire key-value pair 98:81 gets removed.
+
+So d1 now becomes {11:2,True:45,'abc def':25}
+
+del is a predefined module in Python
+
+
+
+
+
+
+
+RETRIEVING KEYS AND VALUES INDIVIDUALLY FROM DICTIONARY
+d1={11:2,True:45,98:81,'abc def':25}
+
+print(d1.keys())...returns only keys of all elements in dictionary
+
+print(d1.values())...returns only values of all elements in dictionary
+
+print(d1.items())...returns all key-value pairs in dictionary
+
+
+
+
+
+
+
+
+
+
+
+
+COMPARING 2 DICTIONARIES
+d1={11:2,True:45,98:81,'abc def':25}
+
+d2={98:81,'abc def':25,11:2,True:45}
+
+print(d1==d2)
+print(d1 is d2)
+print(d1 is not d2)....True
+
+Here even if the order of key-value pairs in d1 and d2 are different but because key-value pairs 
+are same and because order doesnt matter in dictionary so d1==d2 returns True. 
+But even if d1==d2 returns True because d1 and d2 have are mutable so the 2 dictionaries 
+assigned to d1 and d2 will be allocated different RAM memory locations. So d1 is d2 returns False. 
+
+
+
+
+
+
+
+CHECKING IF ELEMENT EXISTS IN DICTIONARY:
+d2={98:81,'abc def':25,11:2,True:45}
+
+print('abc def' in d2)
+Here the above statement checks if there is an element in dictionary d2 whose key is 'abc def'.
+Here 'abc def' in d2 returns True
+
+print(2 in d2)
+Here we get False because there is no element in dictionary d2 whose key is 2
+
+
+
+d2={98:81,'abc def':25,11:2,True:45}
+
+print(2 not in d2)..True
+
+
+
+
+
+
+
+Netsing in dictionary:
+d1={11:89,2:[13,14,(4,8,7),21,23],5:'abc def'}
+
+print(d1[2][2][1])...displays 8
+
+print(d1[2][-2])...displays 21
+
+print(d1[2][2][-1])...displays 7
+
+
+
+d1={11:4,8:'abc',9:True,2:45}
+d1.clear()
+
+print(d1)
+Output is empty dictionary
+
+
+
+
+
+d1={11:4,8:'abc',9:True,2:45}
+d2={2:99,5:81}
+
+d3={**d1,**d2}
+The above statement will merge the dictionaries d1 and d2. The merged dictionary is stored in d3. 
+When we want to merge dictionary we cannot use + operator between the dictionary variables unlike 
+how we merge list and tuple. 
+print(d3)
+Output is {11: 4, 8: 'abc', 9: True, 2: 99, 5: 81} 
+
+
+setdefault:
+
+to find out the value of the key
+a={1:w,2:e,3:y}
+a.setdefault(3,j)
+
+
